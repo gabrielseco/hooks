@@ -26,7 +26,7 @@ jobs:
     - run: npm run lint
     - run: npm test
     - run: npm run build --if-present
-    #- name: coveralls
-    #  uses: coverallsapp/github-action@master
-    #  with:
-    #    github-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
