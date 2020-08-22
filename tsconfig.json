@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./dist",
+    "module": "es6",
+    "noImplicitAny": true,
+    "outDir": "./dist",
+    "target": "es5",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "jsx": "react",
+    "strict": true,
+    "sourceMap": true,
+    "resolveJsonModule": true
+  },
+
+  "exclude": [
+    "rollup.config.ts",
+    "config/**/*.ts",
+    "config/**/*.ts",
+    "demo/**/*.ts",
+    "demo/**/*.tsx",
+    "src/**/*.test.tsx",
+    "src/**/*.test.ts",
+    "src/**/*.stories.tsx",
+    "src/**/*.stories.ts"
+  ]
+}

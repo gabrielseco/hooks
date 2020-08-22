@@ -1,0 +1,80 @@
+{
+  "name": "@rogal/hooks",
+  "version": "1.0.0-beta.3",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "rollup -c rollup.config.ts",
+    "build": "rm -rf dist && rollup -c rollup.config.ts",
+    "watch": "rollup -c rollup.config.ts -w",
+    "lint:js": "front-linter js  -- --presets=javascript,react",
+    "lint:ts": "front-linter js  -- --presets=typescript,react",
+    "lint": "npm run lint:js && npm run lint:ts",
+    "typecheck": "tsc --noEmit",
+    "test": "jest --coverage",
+    "report-coverage": "cat ./coverage/lcov.info | coveralls",
+    "test:watch": "jest --watchAll --coverage",
+    "release:prepare": "shipjs prepare",
+    "release:trigger": "shipjs trigger"
+  },
+  "keywords": [],
+  "author": "Gabriel García Seco",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@rogal/front-linter": "3.0.0-beta.6",
+    "@testing-library/jest-dom": "^5.11.3",
+    "@testing-library/react": "^10.4.8",
+    "@types/jest": "^26.0.8",
+    "@types/node": "^14.0.27",
+    "@types/react": "^16.9.46",
+    "babel-loader": "^8.0.6",
+    "coveralls": "^3.0.9",
+    "eslint-import-resolver-typescript": "^2.2.0",
+    "husky": "^4.2.5",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.2.2",
+    "lint-staged": "^10.2.11",
+    "react": "^16.13.1",
+    "react-docgen-typescript-loader": "^3.6.0",
+    "react-dom": "^16.13.1",
+    "rollup": "^1.27.12",
+    "rollup-plugin-typescript2": "^0.25.3",
+    "serve": "^11.2.0",
+    "shipjs": "^0.20.1",
+    "ts-jest": "^26.1.4",
+    "typescript": "3.9.7"
+  },
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/@rogal/front-linter/typescript-react-eslint.js"
+    ]
+  },
+  "stylelint": {
+    "extends": [
+      "./node_modules/@rogal/front-linter/.stylelintrc.js"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "npm run lint:js -- --fix --staged"
+    ],
+    "*.{tsx,ts}": [
+      "npm run lint:ts -- --fix --staged"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run typecheck && lint-staged"
+    }
+  }
+}
