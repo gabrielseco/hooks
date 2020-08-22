@@ -42,7 +42,7 @@
     "eslint-import-resolver-typescript": "2.2.1",
     "husky": "4.2.5",
     "identity-obj-proxy": "3.0.0",
-    "jest": "26.2.2",
+    "jest": "26.4.2",
     "lint-staged": "10.2.11",
     "react": "16.13.1",
     "react-docgen-typescript-loader": "3.7.2",
