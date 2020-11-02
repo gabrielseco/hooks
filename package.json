@@ -47,7 +47,7 @@
     "react": "16.14.0",
     "react-docgen-typescript-loader": "3.7.2",
     "react-dom": "16.14.0",
-    "rollup": "2.33.0",
+    "rollup": "2.33.1",
     "rollup-plugin-typescript2": "0.29.0",
     "serve": "11.3.2",
     "shipjs": "0.22.0",
