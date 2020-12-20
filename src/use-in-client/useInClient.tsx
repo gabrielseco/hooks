@@ -1,24 +1,20 @@
-import React from 'react';
+import { useMemo, useLayoutEffect, useEffect, useState, useRef } from 'react';
 
-export function useInClient<T>(callback: () => T): T | null {
-  const [valueCallback, setValueCallback] = React.useState<T | null>(null);
-  const [isClient, setClient] = React.useState(false);
-  const refCallback = React.useRef<unknown | null>(null);
+export function useInClient<T>(callback: () => T) {
+  const [isClient, setClient] = useState(false);
+  const refCallback = useRef<typeof callback | null>(null);
 
-  React.useLayoutEffect(() => {
+  useLayoutEffect(() => {
     refCallback.current = callback;
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     setClient(true);
   }, []);
 
-  React.useEffect(() => {
-    if (isClient && refCallback.current) {
-      const calculatedValue = (refCallback as any).current();
-      setValueCallback(calculatedValue);
-    }
+  return useMemo<T | null>(() => {
+    return isClient && refCallback && refCallback.current
+      ? refCallback.current()
+      : null;
   }, [isClient]);
-
-  return valueCallback;
 }
