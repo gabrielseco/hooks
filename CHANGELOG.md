@@ -1,3 +1,9 @@
+# [1.0.0-beta.6] (2021-02-14)
+
+- Improve useInClient hook to prevent warnings in console
+
+
+
 ## [1.0.0-beta.5] (2020-12-20)
 - Fixed useInClient loop
 
