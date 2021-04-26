@@ -34,7 +34,7 @@
     "@rogal/front-linter": "3.0.0-beta.10",
     "@testing-library/jest-dom": "5.12.0",
     "@testing-library/react": "11.2.6",
-    "@types/jest": "26.0.22",
+    "@types/jest": "26.0.23",
     "@types/node": "14.14.42",
     "@types/react": "17.0.3",
     "babel-loader": "8.2.2",
